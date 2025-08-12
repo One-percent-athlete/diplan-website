@@ -29,11 +29,11 @@ export default function Hero() {
       </h1>
       {/* Neon Button */}
       <div className="mt-4">
-        <a href="#lessons" className="neon-btn">
+        <a href="#contact" className="neon-btn relative">
             <h2 className="text-4xl fontsemibold">
                 Book Now
             </h2>
-          <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
         </a>
       </div>
     </section>

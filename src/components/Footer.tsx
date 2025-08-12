@@ -12,9 +12,9 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Column 1 - Brand Info */}
         <div>
-          <h4 className="text-xl font-bold mb-4 text-white">DIplan</h4>
+          <h4 className="text-xl font-bold mb-4 text-white">Diplan</h4>
           <p className="text-sm leading-loose">
-            Crazy Snow 北海道滑雪學校<br />
+            Diplan 滑雪學校<br />
             單板課程｜雙板課程｜滑雪攝影<br />
             中文教練｜小班制課程
           </p>
@@ -24,10 +24,10 @@ export default function Footer() {
         <div>
           <h4 className="text-xl font-bold mb-4 text-white">Get Started</h4>
           <p className="text-sm leading-loose">
-            E-mail：<a href="mailto:info@crazyforsnow.com" className="underline">info@crazyforsnow.com</a><br />
-            WeChat：crazysnow_niseko<br />
-            LINE：@572taxlt<br />
-            Whatsapp：+886905691951
+            E-mail：<a href="mailto:info@crazyforsnow.com" className="underline">info@diplan.com</a><br />
+            WeChat：<br />
+            LINE：<br />
+            Whatsapp：
           </p>
         </div>
 
@@ -49,7 +49,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <Link href="/預定課程">
+          <Link href="/#contact" className="text-lg font-semibold text-white hover:text-[#FF6A00] transition-colors duration-300">
             <span className="inline-block bg-[#FF6A00] hover:bg-orange-600 text-white px-6 py-2 rounded transition duration-300">
               預定課程
             </span>

@@ -55,17 +55,27 @@ export default function Navbar() {
 
         {/* Center: Navigation Links */}
         <ul className="hidden md:flex space-x-8 text-[#1f2980] font-semibold text-lg">
-          {['Home', 'Lessons', 'About', 'Contact'].map((text, i) => (
-            <li key={i}>
-              <a
-                href={`#${text.toLowerCase()}`}
-                className="relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#e45529] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
-              >
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
+            {['Home', 'Lessons', 'About', 'Contact'].map((text, i) => (
+              <li key={i}>
+                {text === 'Lessons' ? (
+                  <Link
+                    href="/lessons"
+                    className="relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#e45529] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+                  >
+                    {text}
+                  </Link>
+                ) : (
+                  <a
+                    href={`#${text.toLowerCase()}`}
+                    className="relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#e45529] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+                  >
+                    {text}
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+
 
         {/* Right: Social Media Icons */}
         <div className="hidden md:flex space-x-4 pr-2 text-2xl">
@@ -131,4 +141,3 @@ export default function Navbar() {
     </nav>
   )
 }
-  

@@ -7,29 +7,16 @@
   --foreground: #1E508F; /* Deep Sky Blue */
   --color-secondary: #4A90E2; /* Glacier Blue */
   --color-primary: #F5A623; /* Sunrise Orange */
+  --neon-highlight-color: #e45529; /* Neon red/orange */
+  --font-main: 'Outfit', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
-:root {
-  --font-main: 'Outfit', cursive;
+html {
+  scroll-behavior: smooth;
 }
 
 
 body {
-  
   font-family: var(--font-main);
   background: var(--background);
   color: var(--foreground);
@@ -40,60 +27,67 @@ body {
   overscroll-behavior: none;
 }
 
+/* Tailwind Custom Layer for Button */
 @layer utilities {
   .neon-btn {
-    @apply relative inline-block px-8 py-3 font-semibold text-lg text-[#e45529]  rounded-md transition-all duration-300 overflow-hidden z-10;
+    @apply relative inline-flex items-center justify-center px-8 py-3 font-semibold text-xl rounded-md transition-all duration-300 overflow-hidden;
+    color: var(--neon-highlight-color);
+    background: transparent;
+    z-index: 10;
   }
 
   .neon-btn:hover {
-    background-color: #e45529;
+    background-color: var(--neon-highlight-color);
     color: black;
-    box-shadow: 0 0 5px #e45529,
-                0 0 25px #e45529,
-                0 0 50px #e45529,
-                0 0 200px #e45529;
+    box-shadow:
+      0 0 8px var(--neon-highlight-color),
+      0 0 30px var(--neon-highlight-color),
+      0 0 60px var(--neon-highlight-color),
+      0 0 150px var(--neon-highlight-color);
   }
 
   .neon-btn span {
     position: absolute;
     display: block;
-  }
-
-  .neon-btn span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #e45529);
-    animation: neon-move-right 1s linear infinite;
+    pointer-events: none;
+    z-index: 1;
   }
 
   .neon-btn span:nth-child(2) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(255,255,255,0), var(--neon-highlight-color));
+    animation: neon-move-right 1s linear infinite;
+  }
+
+  .neon-btn span:nth-child(3) {
     top: -100%;
     right: 0;
-    width: 2px;
+    width: 4px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #e45529);
+    background: linear-gradient(180deg, rgba(255,255,255,0), var(--neon-highlight-color));
     animation: neon-move-down 1s linear infinite;
     animation-delay: 0.25s;
   }
 
-  .neon-btn span:nth-child(3) {
+  .neon-btn span:nth-child(4) {
     bottom: 0;
     right: -100%;
     width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, #e45529);
+    height: 4px;
+    background: linear-gradient(270deg, rgba(255,255,255,0), var(--neon-highlight-color));
     animation: neon-move-left 1s linear infinite;
     animation-delay: 0.5s;
   }
 
-  .neon-btn span:nth-child(4) {
+  .neon-btn span:nth-child(5) {
     bottom: -100%;
     left: 0;
-    width: 2px;
+    width: 4px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #e45529);
+    background: linear-gradient(360deg, rgba(255,255,255,0), var(--neon-highlight-color));
     animation: neon-move-up 1s linear infinite;
     animation-delay: 0.75s;
   }
@@ -119,5 +113,11 @@ body {
   }
 }
 
+.bg-paper-texture {
+  background-image: url('/paper-texture.png'); /* Place the texture file in /public */
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  opacity: 0.98; /* keep text crisp */
+}
 
 
